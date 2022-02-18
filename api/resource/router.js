@@ -11,6 +11,12 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
-
+router.post('/', (req, res, next) => {
+  const newResource = req.body;
+  Resources.createResource(newResource)
+    .then(resource => {
+      res.status(201).json(resource);
+    });
+});
 
 module.exports = router;
