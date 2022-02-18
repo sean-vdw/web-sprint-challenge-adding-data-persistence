@@ -17,7 +17,8 @@ router.post('/', checkResourceUnique, (req, res, next) => {
   Resources.createResource(newResource)
     .then(resource => {
       res.status(201).json(resource);
-    });
+    })
+    .catch(next);
 });
 
 module.exports = router;
