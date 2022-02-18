@@ -13,7 +13,12 @@ function createResource(resource) {
     });
 };
 
+function getByName(name) {
+  return db('resources').where('resource_name', name).first();
+};
+
 module.exports = {
   getResources,
-  createResource
+  createResource,
+  getByName
 }
